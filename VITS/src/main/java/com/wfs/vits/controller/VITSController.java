@@ -15,15 +15,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.excelupload.service.ExcelUpload;
 import com.wfs.vits.UserService;
 import com.wfs.vits.dao.User;
+import com.wfs.vits.excelupload.service.ExcelUpload;
 
 @Controller
 @RequestMapping("vits")
 public class VITSController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ExcelUpload excelUpload;
 	@GetMapping("/")
 	public String index(Model model) {
 		ModelAndView mv = new ModelAndView("index");
@@ -60,7 +63,7 @@ public class VITSController {
 			convFile.createNewFile();
 			 FileOutputStream fos = new FileOutputStream(convFile);
 			 fos.write(file.getBytes());
-			 new ExcelUpload(convFile);
+			 excelUpload.readExcelFile(convFile);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -9,9 +9,18 @@ insert into  user values(1001, 'durgesh','durgesh','durgesh@gmail.com','WFS INdi
 insert into table user("id","name") values(1001,"durgesh");
 
 
-create table excel_template( id number,template_name varchar(40) , template_cd varchar(40) ,del_flg BOOLEAN,  created_by number ,created_on TIMESTAMP, updated_by number,updated_on TIMESTAMP );
+create table exceltemplate( id number,templatename varchar(40) , templatecd varchar(40) ,delflg BOOLEAN,  createdby number ,createdon TIMESTAMP, updatedby number,updatedon TIMESTAMP );
 
 
-create table excel_column( id number,column_name varchar(40) , column_display_name varchar(40) ,template_id number, column_sequence number, required Boolean, validation_method varchar(200), data_type varchar(40),default_value varchar(200), created_by number ,created_on TIMESTAMP, updated_by number,updated_on TIMESTAMP );
+create table excelcolumn( id number,columnname varchar(40) , columndisplayname varchar(40) ,templateid number, columnsequence number, required Boolean, validationmethod varchar(200), datatype varchar(40),defaultvalue varchar(200), createdby number ,createdon TIMESTAMP, updatedby number,updatedon TIMESTAMP );
 
-create table excel_Buffer_Table( buffer_table_id number,sequence_nummber varchar(50) , object BLOB, created_by number ,created_on TIMESTAMP, updated_by number,updated_on TIMESTAMP );
+create table excelbuffertable( buffer_table_id number,sequence_nummber varchar(50) , object BLOB, created_by number ,created_on TIMESTAMP, updated_by number,updated_on TIMESTAMP );
+
+Insert into exceltemplate( id,templatename, templatecd ,delflg) values(1001,'user_template', 'usertemplate',false );
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(1,'name','Name',1001,1,true);
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(2,'password','Password',1001,2,true);
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(3,'email','Email',1001,3,true);
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(4,'phone1','Primary Number',1001,4,true);
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(5,'phone2','Alternate Number',1001,5,true);
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(6,'address','Address',1001,6,true);
+insert into excelcolumn( id ,columnname  , columndisplayname  ,templateid , columnsequence , required) values(7,'ssn','SSN',1001,7,true);

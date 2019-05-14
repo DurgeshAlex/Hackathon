@@ -2,8 +2,7 @@ package com.wfs.vits;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
+import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class VitsApplication {
 
